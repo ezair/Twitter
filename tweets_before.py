@@ -49,7 +49,7 @@ def getTweetsBeforeYear(api, username, year):
 	date_before = datetime.datetime.strptime('01Dec' + str(year), '%d%b%Y')	
 	tweets = api.user_timeline(screen_name = username, count = user.statuses_count, include_rts = True)
 
-	print "The following tweets were by " + username + "and made before " + str(year) + ":\n"
+	print "The following tweets were by " + username + " and made before " + str(year) + ":\n"
 	
 	#print out all tweets by the username given before the year given 
 	for tweet in tweets:
