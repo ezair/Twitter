@@ -1,6 +1,6 @@
 '''
 Author:	Eric Zair
-File:	collect.py
+File:	tweets_before.py
 Description:	This program grabs the tweets of any given user
 				before a certain year.
 '''
@@ -54,7 +54,8 @@ def getTweetsBeforeYear(api, username, year):
 	#print out all tweets by the username given before the year given 
 	for tweet in tweets:
 		if date_before > tweet.created_at:
-			print tweet.text + "\n"
+			print tweet.text
+			print str(tweet.created_at) + "\n"
 	
 
 #-------------------------------------------------------------------------
@@ -68,7 +69,7 @@ def main():
 	api = tweepy.API(auth)
 
 	#get tweets from a user before a certain year.
-	print "This program gets all the tweets of any given user before a specified year."
+	print "This program gets all the tweets of any given user before a specified year.\n"
 	#used as the username for which twitter account to grab tweets from.
 	username = raw_input("Enter a valid twitter username: ")
 	
