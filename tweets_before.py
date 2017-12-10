@@ -7,7 +7,8 @@ Description:	This program grabs the tweets of any given user
 
 
 import tweepy
-from tweepy import OAuthHandler
+from tweepy.streaming import StreamListener
+from tweepy import OAuthHandler, Stream
 import datetime
 
 
@@ -15,7 +16,7 @@ import datetime
 #return type: OAuthHandler
 def createAuthHandler():
 	#consumer_key & consumer_secret are used inorder for tweepy to work.
-	consumer_key = "INSERT YOUR CONSUMER KEY "
+	consumer_key = "INSERT YOUR CONSUMER KEY"
 	consumer_secret = "INSERT YOUR CONSUMER SECRET"
 	
 	#created so that you can access twitter data.
@@ -23,7 +24,7 @@ def createAuthHandler():
 
 	#used to access your twitter account.
 	access_token = "INSERT YOUR ACCESS TOKEN"
-	access_token_secret = "INSERT YOUR ACCESS TOKEN SECRET"
+	access_token_secret = "INSERT YOU ACESS TOKEN SECRET"
 	
 	#set the access token to the auth object.
 	auth.set_access_token(access_token, access_token_secret)
@@ -41,14 +42,13 @@ def requestToken(auth_handler):
 		exit()
 
 
-#print out all stauses the user has made before a certain year given by user.
-#calculates the amount out of how many total tweets were made.
+#print out tweets that of the username given before the year given.
 #return type: void
 def getTweetsBeforeYear(api, username, year):
 	user = api.get_user(username)
 	date_before = datetime.datetime.strptime('01Dec' + str(year), '%d%b%Y')	
 	tweets = api.user_timeline(screen_name = username, count = user.statuses_count, include_rts = True)
-
+	count_of_tweets = 0
 	print "The following tweets were by " + username + " and made before " + str(year) + ":\n"
 	
 	#print out all tweets by the username given before the year given 
@@ -56,7 +56,9 @@ def getTweetsBeforeYear(api, username, year):
 		if date_before > tweet.created_at:
 			print tweet.text
 			print str(tweet.created_at) + "\n"
+			count_of_tweets += 1
 	
+	print str(count_of_tweets) + " were made before " + str(year)
 
 #-------------------------------------------------------------------------
 def main():
@@ -74,7 +76,7 @@ def main():
 	username = raw_input("Enter a valid twitter username: ")
 	
 	#used as the year that tweets will be grabbed before.
-	before_year = raw_input("Before what year would you like to get these tweets?(Enter a year) ")
+	before_year = raw_input("Before what year would you like to get these tweets?(Enter a year): ")
 	
 	#print out all of the tweets by a user before a certain year.
 	getTweetsBeforeYear(api, username, before_year)
