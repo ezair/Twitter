@@ -46,6 +46,7 @@ def test(api):
 	for result in results:
 		print result.text
 
+
 #print out all stauses the user has made before a certain year given by user.
 #calculates the amount out of how many total tweets were made.
 #return type: void
@@ -60,6 +61,7 @@ def getTweetsBeforeYear(api, username, year):
 	for tweet in tweets:
 		if date_before > tweet.created_at:
 			print tweet.text + "\n"
+	
 	
 #-------------------------------------------------------------------------
 def main():
