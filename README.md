@@ -22,3 +22,6 @@ This is repository will contain a collection of programs using the twitter api "
 
 
 #you must make sure that you are also have mongodb installed on your computer
+
+
+#All files were written in Python2
