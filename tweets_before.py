@@ -41,12 +41,6 @@ def requestToken(auth_handler):
 		exit()
 
 
-def test(api):
-	results = api.search(q="")
-	for result in results:
-		print result.text
-
-
 #print out all stauses the user has made before a certain year given by user.
 #calculates the amount out of how many total tweets were made.
 #return type: void
@@ -62,7 +56,7 @@ def getTweetsBeforeYear(api, username, year):
 		if date_before > tweet.created_at:
 			print tweet.text + "\n"
 	
-	
+
 #-------------------------------------------------------------------------
 def main():
 	auth = createAuthHandler()
