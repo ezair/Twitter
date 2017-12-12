@@ -66,7 +66,6 @@ def getTweetsBeforeYear(api, username, year):
 #Play an mp3 file in the background of the program.
 #return type: void
 def playMusic(path_to_sound_file):
-	#play a dumbass song
 	mixer.init()
 	mixer.music.load(path_to_sound_file)
 	mixer.music.play()
@@ -78,7 +77,7 @@ def runAgain():
 	run_again = raw_input("Would you like to play to check another user's tweets(Y/N)? ")
 	#check to see if user input is valid.
 	if run_again.lower() != "y" and run_again.lower() != "n":
-		#print "That is not a valid answer."
+		print "That is not a valid answer."
 		runAgain()
 	#return the user's yes or no responce
 	else:
