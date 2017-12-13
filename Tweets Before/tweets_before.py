@@ -81,7 +81,6 @@ def runAgain():
 		runAgain()
 	#return the user's yes or no responce
 	else:
-		#print run_again
 		return run_again.lower() == "y"
 
 
