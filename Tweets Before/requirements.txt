@@ -1,3 +1,2 @@
-The following pieces of software are required to run the tweets_before.py program:
-	tweepy
-	pygame
+tweepy
+pygame
